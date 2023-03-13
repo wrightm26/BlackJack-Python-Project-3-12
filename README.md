@@ -1,0 +1,3 @@
+BlackJack Game
+
+In this program you can play BlackJack one time. You have to restart the kernel each time you want to play. When you first begin the game, you(Player) will receive two cards and the player will receive two cards. If your cards or the dealer's cards equal 21, you will get a "BLACKJACK". If neither of you get a value of 21 on the first try, you can choose to Hit or Stand. If you Hit, both of you will receive another card. You can continue entering Hit until someone's hand value is greater than or equal to 21 and a BUST will return. Or if you want to play it safe, you can enter Stand and both hand values will be added up. Whoever has the highest hand value wins.
