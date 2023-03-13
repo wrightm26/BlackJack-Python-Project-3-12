@@ -145,7 +145,8 @@ class Game():
                     play_again = input("Would you like to play again? Enter 'yes' or 'no'.")
                     if play_again == 'yes':
                         main()
-                    else:
+                    elif play_again == 'no':
+                        print("THANKS FOR PLAYING")
                         break
                     
                 
@@ -157,9 +158,9 @@ class Game():
                     play_again = input("Would you like to play again? Enter 'yes' or 'no'.")
                     if play_again == 'yes':
                         main()
-                    else:
+                    elif play_again == 'no':
+                        print("THANKS FOR PLAYING")
                         break
-                    
                 
             
             
