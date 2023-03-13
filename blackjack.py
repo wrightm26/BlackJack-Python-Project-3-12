@@ -34,7 +34,7 @@ class Player():
         card_to_add = deck.pop()
         #adds the card taken from the deck to the player/dealer's hand
         target.hand.append(card_to_add)
-        
+
 class Dealer(Player):
     #instance that creates the hand for the dealer and it starts the hand value
     def __init__(self, target):
@@ -64,12 +64,12 @@ class Game():
     def __init__(self):
         self.dealer = Dealer(self)
         self.player = Human(self)
-       
+
     def start_game(self):
         self.dealer.generate_deck()
         self.dealer.deal_card(self.dealer)
         self.dealer.deal_card(self.dealer)
-        print("\nThe Dealer's Hand:\n") 
+        print("\nThe Dealer's Hand:\n")
         print(self.dealer.hand[0])
         print("\nHIDDEN...")
         self.player.adding_score(self.dealer)
@@ -89,7 +89,7 @@ class Game():
         if self.player.hand_value == 21:
             return "BLACKJACK! Player Won!"
 
-        
+
     def hit_or_stand(self):
         while True:
             print("$"*40)
@@ -102,7 +102,7 @@ class Game():
                 random.shuffle(deck)
                 #the dealer receives a card, their updated hand is shown, and their updated hand value
                 self.dealer.deal_card(self.dealer)
-                print("\nThe Dealer's Hand:\n") 
+                print("\nThe Dealer's Hand:\n")
                 print(self.dealer.hand[0])
                 print("\nHIDDEN...")
                 self.player.adding_score(self.dealer)
@@ -113,10 +113,11 @@ class Game():
                     play_again = input("Would you like to play again? Enter 'yes' or 'no'.")
                     if play_again == 'yes':
                         main()
-                    else:
+                    elif play_again == 'no':
+                        print("THANKS FOR PLAYING")
                         break
-                    
-    
+
+
                 print(f"\nThe Player's Hand:")
                 #the player receives a card, their updated hand is shown, and their updated hand value
                 self.dealer.deal_card(self.player)
@@ -129,12 +130,13 @@ class Game():
                     play_again = input("Would you like to play again? Enter 'yes' or 'no'.")
                     if play_again == 'yes':
                         main()
-                    else:
+                    elif play_again == 'no':
+                        print("THANKS FOR PLAYING")
                         break
-                    
+
 
             if question == 'stand':
-                #both dealer and player scores will be added up 
+                #both dealer and player scores will be added up
                 self.player.adding_score(self.dealer)
                 self.player.adding_score(self.player)
                 #if the player's score is higher than the dealers then the player wins and both hands are shown
@@ -148,8 +150,8 @@ class Game():
                     elif play_again == 'no':
                         print("THANKS FOR PLAYING")
                         break
-                    
-                
+
+
                 #if the dealer's score is higher than the players then the dealer wins and both hands are shown
                 elif self.player.hand_value < self.dealer.hand_value:
                     print(f"\nThe Player's Hand: {self.player.hand[0]} | {self.player.hand[1]}\nValue: {self.player.hand_value}\n")
@@ -161,13 +163,12 @@ class Game():
                     elif play_again == 'no':
                         print("THANKS FOR PLAYING")
                         break
-                
-            
-            
+
+
+
 def main():
     play = Game()
     play.start_game()
     play.hit_or_stand()
-    
+
 main()
-            
